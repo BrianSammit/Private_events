@@ -4,12 +4,42 @@
     <title>PrivateEvents</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+  <% if flash[:notice] %>
+      <div class="notification is-primary global-notification">
+        <p class="notice"><%= notice %></p>
+      </div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="notification is-danger global-notification">
+        <p class="alert"><%= alert %></p>
+      </div>
+    <% end %>
+    <nav class="navbar is-dark">
+      <div class="navbar-brand">
+        <%= link_to root_path, class: "navbar-item" do %>
+        <h1 class="title is-5">Private Events</h1>
+        <% end %>
+        <div class="navbar-burger burger" data-target="navbarExample">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div id="navbarExample" class="navbar-menu">
+        <div class="navbar-end">
+          <div class="field is-grouped mt-2 mr-2">
+            <%= display_button_log(current_user) %>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="column">
     <%= yield %>
   </body>
 </html>
