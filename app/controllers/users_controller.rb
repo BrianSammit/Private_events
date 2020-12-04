@@ -7,11 +7,12 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.save
-          flash[:success] = "Object successfully created"
-          redirect_to @user
+            flash[:success] = "Object successfully created"
+            session[:user_id] = @user.id
+            redirect_to root_path
         else
-          flash[:error] = "Something went wrong"
-          render 'new'
+            flash[:error] = "Something went wrong"
+            render 'new'
         end
     end
 
