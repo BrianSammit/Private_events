@@ -1,29 +1,41 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @event.name %>
-</p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @event.date %>
-</p>
+<div class="section">
+	<div class="container">
+	<div class="columns is-centered">
 
-<p>
-  <strong>Location:</strong>
-  <%= @event.location %>
-</p>
+		<div class="column is-4">
+			
+      <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
+      <p>
+        <strong>Name:</strong>
+        <%= @event.name %>
+      </p>
 
-<p>
-  <strong>Creator:</strong>
-  <%= @creator %>
-</p>
+      <p>
+        <strong>Date:</strong>
+        <%= @event.date %>
+      </p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+      <p>
+        <strong>Location:</strong>
+        <%= @event.location %>
+      </p>
+
+      <p>
+        <strong>Description:</strong>
+        <%= @event.description %>
+      </p>
+
+      <p>
+        <strong>Creator:</strong>
+        <%= @creator %>
+      </p>
+
+      <%= link_to 'Edit', edit_event_path(@event) %> |
+      <%= link_to 'Back', events_path %>
+		</div>
+		</div>
+	</div>
+</div>

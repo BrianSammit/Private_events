@@ -1,5 +1,14 @@
-<%=  form_tag sessions_path do |f| %>
-  <%= label_tag :email%><br/>
-  <%= text_field_tag :email%>
-  <%= submit_tag ("login") %>
-<% end %>
+<div class="section">
+	<div class="container">
+	<div class="columns is-centered">
+
+		<div class="column is-4">
+      <%=  form_tag sessions_path do |f| %>
+      <%= label_tag :email%><br/>
+      <%= text_field_tag :email%>
+      <%= submit_tag ("login") %>
+      <% end %>
+		</div>
+		</div>
+	</div>
+</div>
