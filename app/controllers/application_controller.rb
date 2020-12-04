@@ -12,10 +12,10 @@ class ApplicationController < ActionController::Base
       if current_user.present?
         return "<div class='field is-grouped mt-2 mr-2'>
             <p class='control'>
-              <a class='button is-info' href='/users/edit'>Profile</a>
+              <a class='button is-info'>Profile</a>
             </p>
             <p class='control'>
-              <a class='button is-danger' rel='nofollow' data-method='delete' href='/users/sign_out'>Log out</a>
+              <a class='button is-danger' rel='nofollow' data-method='delete' href='/sessions/new'>Log out</a>
             </p>
           </div>".html_safe
       end
