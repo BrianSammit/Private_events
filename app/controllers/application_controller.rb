@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
       User.find_by(id: session[:user_id])
     end
 
-    def display_username(current_user)
+    def display_username
       return current_user.username if current_user
     end
   
@@ -18,19 +18,19 @@ class ApplicationController < ActionController::Base
       if current_user.present?
         return display_username
       else
-        '<%= link_to "Log in", login_path, class: "button is-light"%>'
+        "<a class='button is-success' href='/sessions/new'>Sign in</a>".html_safe
       end
     end
 
     def user_validation
       if current_user.present?
-        return '<%= link_to "Sign up", logout_path, class: "button is-light"%>'
+        return "<a class='button is-danger' rel='nofollow' data-method='delete' href='/users/sign_out'>Log out</a>".html_safe
       else
-        '<%= link_to "Sign up", new_session_path, class: "button is-light"%>'
+        "<a class='button is-success' href='/users/new'>Sign up</a>".html_safe
       end
     end
   
     def display_button_new
-      return "<%= link_to 'New Event', new_event_path, class: 'button is-success' %>" if current_user.present?
+      return "<a class='button is-success' href='/events/new'>NEW EVENT</a>".html_safe if current_user.present?
     end
 end
