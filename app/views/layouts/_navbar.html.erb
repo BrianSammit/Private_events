@@ -1,0 +1,26 @@
+    <nav class="navbar is-dark">
+        <div class="navbar-brand">
+            <%= link_to root_path, class: "navbar-item" do %>
+            <h1 class="title is-4">Private Events</h1>
+            <% end %>
+            <div class="navbar-burger burger" data-target="navbarExample">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div id="navbarExample" class="navbar-menu">
+            <div class="navbar-end">
+                <div class="field is-grouped mt-2 mr-2">
+                    <div class='field is-grouped mt-2 mr-2'>
+                    <p class='control'>
+                        <%= display_button_log %>
+                    </p>
+                    <p class='control'>
+                        <%= user_validation %>
+                    </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>

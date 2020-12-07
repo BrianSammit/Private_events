@@ -32,6 +32,9 @@
         <strong>Creator:</strong>
         <%= @creator %>
       </p>
+      <% if @creator == current_user.username %>
+        <%= link_to 'Invite', attendances_path %>
+      <% end %>
 
       <%= link_to 'Edit', edit_event_path(@event) %> |
       <%= link_to 'Back', events_path %>
