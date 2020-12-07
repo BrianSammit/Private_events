@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
 
     def user_validation
       if current_user.present?
-        return "<a class='button is-danger' rel='nofollow' data-method='delete' href='/users/sign_out'>Log out</a>".html_safe
+        return "<a class='button is-danger' rel='nofollow' data-method='delete' href='logout'>Log out</a>".html_safe
       else
         "<a class='button is-success' href='/users/new'>Sign up</a>".html_safe
       end
