@@ -18,15 +18,15 @@ class ApplicationController < ActionController::Base
       if current_user.present?
         return display_username
       else
-        "<a class='button is-success' href='/sessions/new'>Sign in</a>".html_safe
+        "<a class='button is-success' href='/login'>Sign in</a>".html_safe
       end
     end
 
     def user_validation
       if current_user.present?
-        return "<a class='button is-danger' rel='nofollow' data-method='delete' href='logout'>Log out</a>".html_safe
+        return "<a class='button is-danger' href='/logout'>Log out</a>".html_safe
       else
-        "<a class='button is-success' href='/users/new'>Sign up</a>".html_safe
+        "<a class='button is-success' href='/sign_up'>Sign up</a>".html_safe
       end
     end
   
