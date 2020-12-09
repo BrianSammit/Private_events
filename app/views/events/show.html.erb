@@ -2,43 +2,62 @@
 
 <div class="section">
 	<div class="container">
-	<div class="columns is-centered">
+    <div class="columns is-centered">
 
-		<div class="column is-4">
-			
-      <p id="notice"><%= notice %></p>
+      <div class="column is-4">
+        
+        <p id="notice"><%= notice %></p>
 
-      <p>
-        <strong>Name:</strong>
-        <%= @event.name %>
-      </p>
+        <p>
+          <strong>Name:</strong>
+          <%= @event.name %>
+        </p>
 
-      <p>
-        <strong>Date:</strong>
-        <%= @event.date %>
-      </p>
+        <p>
+          <strong>Date:</strong>
+          <%= @event.date %>
+        </p>
 
-      <p>
-        <strong>Location:</strong>
-        <%= @event.location %>
-      </p>
+        <p>
+          <strong>Location:</strong>
+          <%= @event.location %>
+        </p>
 
-      <p>
-        <strong>Description:</strong>
-        <%= @event.description %>
-      </p>
+        <p>
+          <strong>Description:</strong>
+          <%= @event.description %>
+        </p>
 
-      <p>
-        <strong>Creator:</strong>
-        <%= @creator %>
-      </p>
-      <% if @creator == current_user.username %>
-        <%= link_to 'Invite', attendances_path %>
-      <% end %>
+        <p>
+          <strong>Creator:</strong>
+          <%= @creator %>
+        </p> 
 
-      <%= link_to 'Edit', edit_event_path(@event) %> |
-      <%= link_to 'Back', events_path %>
-		</div>
+        <%= link_to 'Edit', edit_event_path(@event) %> |
+        <%= link_to 'Back', events_path %>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Status</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+        
+          <tbody>
+            <% @user.each do |user| %>
+              <tr>
+                <td><%= user.username %></td>
+                <td>
+                  <% if @creator == current_user.username %>
+                    <%= link_to 'Invite', invite_path %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
 		</div>
 	</div>
 </div>

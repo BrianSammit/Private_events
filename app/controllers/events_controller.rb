@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  include EventsHelper
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events
@@ -12,6 +13,8 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @creator = User.find(@event.user_id).username
+    @user = User.all
+    @attendance = Attendance.new
   end
 
   # GET /events/new
@@ -72,4 +75,5 @@ class EventsController < ApplicationController
     def event_params
       params.require(:event).permit(:name, :date, :description, :location, :user_id)
     end
+    
 end
